@@ -42,7 +42,7 @@ function SearchAPI(query){
 }
 
 
-const debounceSearch=debounce(SearchAPI,1000);
+const debounceSearch=debounce(SearchAPI,300);
 
 const inputField=document.getElementById('searchInput');
 
