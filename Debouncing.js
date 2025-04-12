@@ -19,15 +19,11 @@ title.textContent='Debouncing'
 //2 Delay that time tracker
 
 function debounce(func,delay){
-    //keep tracking delay time id 
     let timeOutId;
 
     return function(...args){
        const context=this;
-    //    console.log(context)
-       clearTimeout(timeOutId); //clear timeout by time id
-
-       //set timeout
+       clearTimeout(timeOutId);
        timeOutId=setTimeout(()=>{
         
         func.apply(context,args)
@@ -35,12 +31,10 @@ function debounce(func,delay){
     };
 };
 
-//Example use
 
 function SearchAPI(query){
   console.log(`Searching for ${query}`);
 }
-
 
 const debounceSearch=debounce(SearchAPI,300);
 
@@ -48,7 +42,6 @@ const inputField=document.getElementById('searchInput');
 
 if(inputField){
     inputField.addEventListener('keyup',(e)=>{
-        //  console.log(e.target.value);
         debounceSearch(e.target.value);
     })
 }else{
