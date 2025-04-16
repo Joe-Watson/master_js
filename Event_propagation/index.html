@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Event Propagation</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f0f0;
+      color: #333;
+      padding: 20px;
+    }
+
+    h1 {
+      color: #2c3e50;
+    }
+
+    .outer {
+      background-color: #3498db;
+      padding: 20px;
+      border-radius: 5px;
+      margin-bottom: 20px;
+    }
+
+    .inner {
+      background-color: #2ecc71;
+      padding: 20px;
+      border-radius: 5px;
+    }
+
+    button {
+      padding: 10px 15px;
+      background-color: #e74c3c;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .container {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: #fff;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      padding: 20px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      display: none;
+      z-index: 1000;
+    }
+  </style>
+</head>
+<body>
+  <h1>Event Propagation</h1>
+  <p>Click the button to see event propagation in action.</p>
+
+  <div class="outer" id="outer">
+    <div class="inner" id="inner">
+      <button type="button" title="click me" id="button">Click me</button>
+    </div>
+  </div>
+
+  <div class="container" id="popover">
+    <h2>Popover</h2>
+    <p id="popoverText">This is a popover that appears on button click.</p>
+    <button type="button" id="close">Close</button>
+  </div>
+
+  <script src="index.js" defer></script>
+</body>
+</html>
