@@ -86,11 +86,16 @@ class UserDetails extends HTMLElement{
         p{
         color:blue;
         }
+         ::slotted(*) {
+          font-style: italic;
+          color: darkblue;
+        }
         </style>
         <div>
         <h5>${this.getAttribute('name')}</h5>
         <p>${this.getAttribute('details')}</p>
         </div>
+         <slot name="footer"></slot>
         `
     }
 }
@@ -108,23 +113,26 @@ class UserAddress extends HTMLElement{
    connectedCallback(){
     this.render()
    }
-   attributeChangeCallback(name,oldVal,newVal){
+   attributeChangedCallback(name,oldVal,newVal){
        if(oldVal !== newVal){
         this.render()
        }
    }
-   render(){
-    this.shadowRoot.innerHTML=`
-    <style>
-    h1{
-    color:green;
-    }
-    p{
-    color:gray}
-    </style>
-     <h1>Address</h1>
-    <p>${this.getAttribute('home'),this.getAttribute('phase'),this.getAttribute('state'),this.getAttribute('pin')}</p>
-    `
-   }
+   render() {
+    this.shadowRoot.innerHTML = `
+      <style>
+        h1 { color: green; }
+        p { color: gray; }
+      </style>
+      <h1>Address</h1>
+      <p>
+        Home: ${this.getAttribute('home')}<br>
+        Phase: ${this.getAttribute('phase')}<br>
+        State: ${this.getAttribute('state')}<br>
+        PIN: ${this.getAttribute('pin')}
+      </p>
+    `;
+  }
+  
 }
 customElements.define('user-address',UserAddress)
