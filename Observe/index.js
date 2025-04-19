@@ -18,10 +18,10 @@ const callBack = function(mutationsList, observer) {
 
 
 const observer = new MutationObserver(callBack);
-console.log(observer.disconnect()); 
+console.table(observer); 
 observer.observe(targetNode, config);
 
-
+  
 // Example to trigger a mutation (add a child node)
 const newElement = document.createElement('p');
 newElement.textContent = 'This is a new paragraph.';
