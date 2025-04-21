@@ -2,7 +2,6 @@ class UserContainer extends HTMLElement{
     constructor(){
         super()
         const shadow=this.attachShadow({mode:"open"})
-
         shadow.innerHTML=`
         <style>
         h1{
@@ -11,7 +10,6 @@ class UserContainer extends HTMLElement{
          p{
          color:green;
          }
-
         </style>
         <h1>Hi, I m Suman kumar</h1>
         <p>✅I m a Full stack developer 👀</h1> `
@@ -122,7 +120,9 @@ class UserAddress extends HTMLElement{
     this.shadowRoot.innerHTML = `
       <style>
         h1 { color: green; }
-        p { color: gray; }
+        ::slotted(p){
+            color:red;
+        }
       </style>
       <h1>Address</h1>
       <p>
@@ -131,6 +131,9 @@ class UserAddress extends HTMLElement{
         State: ${this.getAttribute('state')}<br>
         PIN: ${this.getAttribute('pin')}
       </p>
+      <div part="footer-container">
+        <slot name="footer"></slot>
+      </div>
     `;
   }
   
