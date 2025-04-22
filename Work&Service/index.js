@@ -12,3 +12,11 @@ heavyWorker.onmessage=function(event){
 }
 
 heavyWorker.postMessage(40);
+
+if('serviceWorker' in navigator){
+    navigator.serviceWorker.register('./service-worker.js').then(registration=>{
+        console.log('Service worker registered with scope:', registration.scope);
+    }).catch(err=>console.log('Service worker registration failed:', err));
+}
+
+
