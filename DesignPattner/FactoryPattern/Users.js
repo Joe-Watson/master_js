@@ -26,4 +26,4 @@ class UserFactory{
 }
 
 const admin=UserFactory.createUser('admin');
-console.log(admin.role,admin.permissions);
+// console.log(admin.role,admin.permissions);
