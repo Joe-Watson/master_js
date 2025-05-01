@@ -5,6 +5,8 @@ Array.prototype.myMap=function(callBack,thisArg){
     for(let i=0;i<this.length;i++){
         if(this.hasOwnProperty(i)){
             result.push(callBack.call(thisArg,this[i],i,this));
+        }else{
+            result.push(`<1 empty item>`);
         }
     }
     return result;
